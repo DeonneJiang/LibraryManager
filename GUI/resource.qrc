@@ -1,0 +1,32 @@
+﻿<RCC>
+    <qresource prefix="/">
+        <file>Icon/book1_black.png</file>
+        <file>Icon/book1_white.png</file>
+        <file>Icon/book2_black.png</file>
+        <file>Icon/book2_white.png</file>
+        <file>Icon/book3_black.png</file>
+        <file>Icon/book3_white.png</file>
+        <file>Icon/logo-white.png</file>
+        <file>Icon/logo.png</file>
+        <file>Icon/refresh_black.png</file>
+        <file>Icon/refresh_white.png</file>
+        <file>Icon/more.png</file>
+        <file>Icon/user.png</file>
+        <file>Icon/zoom.png</file>
+        <file>Wallpaper/wallpaper_0.jpg</file>
+        <file>Wallpaper/wallpaper_1.jpg</file>
+        <file>Wallpaper/wallpaper_2.jpg</file>
+        <file>Wallpaper/wallpaper_3.jpg</file>
+        <file>Wallpaper/wallpaper_4.jpg</file>
+        <file>Wallpaper/wallpaper_5.jpg</file>
+        <file>Wallpaper/wallpaper_6.jpg</file>
+        <file>Wallpaper/wallpaper_7.jpg</file>
+        <file>Wallpaper/wallpaper_8.jpg</file>
+        <file>Icon/close_black.png</file>
+        <file>Icon/close_white.png</file>
+        <file>Icon/reader-black.png</file>
+        <file>Icon/plus_black.png</file>
+        <file>Icon/plus_white.png</file>
+        <file>Icon/bathrobes-black.png</file>
+    </qresource>
+</RCC>

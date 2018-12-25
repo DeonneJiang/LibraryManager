@@ -1,0 +1,1067 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BookListWindow</class>
+ <widget class="QWidget" name="BookListWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>986</width>
+    <height>534</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>图书列表</string>
+  </property>
+  <property name="whatsThis">
+   <string>正方形打野</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QLabel
+{
+	font: 14px &quot;宋体&quot;;
+}</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>15</number>
+   </property>
+   <property name="topMargin">
+    <number>15</number>
+   </property>
+   <property name="rightMargin">
+    <number>15</number>
+   </property>
+   <property name="bottomMargin">
+    <number>15</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QWidget" name="BookListWidget" native="true">
+     <property name="styleSheet">
+      <string notr="true">#BookListWidget
+{
+	border:1px solid rgb(235, 235, 235);
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>1</number>
+      </property>
+      <property name="topMargin">
+       <number>1</number>
+      </property>
+      <property name="rightMargin">
+       <number>1</number>
+      </property>
+      <property name="bottomMargin">
+       <number>1</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="BookListTitleWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#BookListTitleWidget
+{
+	background-color: white;
+}</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>9</number>
+         </property>
+         <property name="rightMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>9</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="BookListTitle">
+           <property name="styleSheet">
+            <string notr="true">#BookListTitle
+{
+	font: bold 14px &quot;宋体&quot;;
+}</string>
+           </property>
+           <property name="text">
+            <string>所有的图书</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="RefreshBookList">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#RefreshBookList
+{
+	border: 0;
+	color: gray;
+	/*image: url(:/Icon/refresh_white.png);*/
+}
+#RefreshBookList:pressed
+{
+	color: black;
+	/*image: url(:/Icon/refresh_black.png);*/
+}</string>
+           </property>
+           <property name="text">
+            <string>显示所有图书</string>
+           </property>
+           <property name="icon">
+            <iconset resource="resource.qrc">
+             <normaloff>:/Icon/refresh_white.png</normaloff>
+             <normalon>:/Icon/refresh_black.png</normalon>:/Icon/refresh_white.png</iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="ModeSelectWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QRadioButton::indicator
+{
+	width:0;
+	height: 0
+}
+QRadioButton
+{
+	font: 14px &quot;黑体&quot;;
+	height: 20px;
+	padding: 2px 9px 2px 4px;
+	border: 2px solid rgb(240,240,240);
+	background-color: rgb(244,244,244);
+}
+QRadioButton:checked
+{
+	color: white;
+	background-color: rgb(71, 71, 71)
+}
+#ModeSelectWidget
+{
+	background-color: white;
+}</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QRadioButton" name="PictureMode">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>图片模式</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="ListMode">
+           <property name="text">
+            <string>列表模式</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QStackedWidget" name="stackedWidget">
+        <property name="styleSheet">
+         <string notr="true">#stackedWidget
+{
+	background-color:white;
+}</string>
+        </property>
+        <property name="currentIndex">
+         <number>1</number>
+        </property>
+        <widget class="QWidget" name="PictureModePage">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QScrollArea" name="scrollArea">
+            <property name="widgetResizable">
+             <bool>true</bool>
+            </property>
+            <widget class="QWidget" name="scrollAreaWidgetContents">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>63</width>
+               <height>16</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QWidget" name="ListModePage">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QTableWidget" name="BookList">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="sizeAdjustPolicy">
+             <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+            </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::SingleSelection</enum>
+            </property>
+            <property name="selectionBehavior">
+             <enum>QAbstractItemView::SelectRows</enum>
+            </property>
+            <property name="textElideMode">
+             <enum>Qt::ElideMiddle</enum>
+            </property>
+            <property name="verticalScrollMode">
+             <enum>QAbstractItemView::ScrollPerPixel</enum>
+            </property>
+            <attribute name="horizontalHeaderHighlightSections">
+             <bool>false</bool>
+            </attribute>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QWidget" name="DetailsBoxWidget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>300</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">#DetailsBoxWidget
+{
+	border: 1px solid rgb(235,235,235);
+	background-color: white;
+}</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>1</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="DetailsBoxTilteWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <property name="spacing">
+          <number>10</number>
+         </property>
+         <property name="rightMargin">
+          <number>9</number>
+         </property>
+         <property name="bottomMargin">
+          <number>9</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="DetailsBoxTitle">
+           <property name="styleSheet">
+            <string notr="true">#DetailsBoxTitle
+{
+	font:bold 14px &quot;宋体&quot;;
+}</string>
+           </property>
+           <property name="text">
+            <string>图书详情</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="RefreshDetails">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#RefreshDetails
+{
+	border: 0;
+	image: url(:/Icon/refresh_white.png);
+}
+#RefreshDetails:pressed
+{
+	image: url(:/Icon/refresh_black.png);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="CloseDetails">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>15</width>
+             <height>15</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#CloseDetails
+{
+	border: 0;
+	image: url(:/Icon/close_white.png);
+}
+#CloseDetails:pressed
+{
+	image: url(:/Icon/close_black.png);
+}</string>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="DetailsWidget" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>250</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="Cover">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true"/>
+           </property>
+           <property name="text">
+            <string>%1</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="DetailsTextLayout">
+           <item>
+            <widget class="QWidget" name="DetailsTitleWidget" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <layout class="QVBoxLayout" name="DetailTitleLayout">
+              <item>
+               <widget class="QLabel" name="Title">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#Title
+{
+	font-size: 22px;
+	font-weight: bold;
+}</string>
+                </property>
+                <property name="text">
+                 <string>%1</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <layout class="QGridLayout" name="DetailContentLayout">
+             <property name="horizontalSpacing">
+              <number>25</number>
+             </property>
+             <property name="verticalSpacing">
+              <number>10</number>
+             </property>
+             <item row="3" column="2">
+              <widget class="QLabel" name="PriceLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>价格</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="3">
+              <widget class="QLabel" name="Price">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QLabel" name="Permission">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="PressLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>出版社</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="PermissionLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>权限</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLabel" name="Press">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="2">
+              <widget class="QLabel" name="PurchaseTimeLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>购入时间</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLabel" name="AuthorLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>作者</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLabel" name="Author">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="2">
+              <widget class="QLabel" name="ISBNLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>ISBN</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="3">
+              <widget class="QLabel" name="PurchaseTime">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="ClassificationLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>分类</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="3">
+              <widget class="QLabel" name="ISBN">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="2">
+              <widget class="QLabel" name="BookIDLabel">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>图书编号</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QLabel" name="Classification">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="3">
+              <widget class="QLabel" name="BookID">
+               <property name="text">
+                <string>%1</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QWidget" name="BorrowWidget" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
+              <item>
+               <widget class="QPushButton" name="Borrow">
+                <property name="styleSheet">
+                 <string notr="true">#Borrow
+{
+	width: 120px;
+	height: 40px;
+	border: 1px;
+	border-radius: 12px;
+	background-color: rgb(0, 170, 255);
+	font-size: 18px;
+	color: white;
+}
+#Borrow:hover
+{
+	background-color: rgb(0, 210, 255);
+}
+#Borrow:pressed
+{
+	border: 1px solid white;
+	background-color:black;
+	color: white;
+}</string>
+                </property>
+                <property name="text">
+                 <string>借阅</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="Return">
+                <property name="styleSheet">
+                 <string notr="true">#Return
+{
+	width: 120px;
+	height: 40px;
+	border: 1px;
+	border-radius: 12px;
+	background-color: rgb(0, 200, 200);
+	font-size: 18px;
+	color: white;
+}
+#Return:hover
+{
+	background-color: rgb(30, 230, 230);
+}
+#Return:pressed
+{
+	border: 1px solid white;
+	background-color:black;
+	color: white;
+}</string>
+                </property>
+                <property name="text">
+                 <string>归还</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="Subscribe">
+                <property name="styleSheet">
+                 <string notr="true">#Subscribe
+{
+	width: 120px;
+	height: 40px;
+	border: 1px;
+	border-radius: 12px;
+	background-color: rgb(170, 0, 255);
+	font-size: 18px;
+	color: white;
+}
+#Subscribe:hover
+{
+	background-color: rgb(210, 100, 255);
+}
+#Subscribe:pressed
+{
+	border: 1px solid white;
+	background-color:black;
+	color: white;
+}</string>
+                </property>
+                <property name="text">
+                 <string>预约</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="Unsubscribe">
+                <property name="styleSheet">
+                 <string notr="true">#Unsubscribe
+{
+	width: 120px;
+	height: 40px;
+	border: 1px;
+	border-radius: 12px;
+	background-color: rgb(200, 200, 200);
+	font-size: 18px;
+	color: white;
+}
+#Unsubscribe:hover
+{
+	background-color: rgb(235, 235, 235);
+}
+#Unsubscribe:pressed
+{
+	border: 1px solid white;
+	background-color:black;
+	color: white;
+}</string>
+                </property>
+                <property name="text">
+                 <string>取消预约</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_4">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>5</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="CountState">
+                <property name="styleSheet">
+                 <string notr="true">font-weight: bold;</string>
+                </property>
+                <property name="text">
+                 <string>剩余 %1 本。</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_2">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>0</width>
+       <height>5</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>PictureMode</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onChangedMode(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ListMode</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onChangedMode(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>137</x>
+     <y>83</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BookList</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onSelectedBook(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CloseDetails</sender>
+   <signal>clicked()</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onClickedCloseDetailsBox()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>599</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Borrow</sender>
+   <signal>clicked()</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onCommandButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>354</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Return</sender>
+   <signal>clicked()</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onCommandButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>480</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Subscribe</sender>
+   <signal>clicked()</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onCommandButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>606</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Unsubscribe</sender>
+   <signal>clicked()</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onCommandButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>732</x>
+     <y>480</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>RefreshDetails</sender>
+   <signal>clicked()</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>onRefreshDetails()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>920</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>RefreshBookList</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>BookListWindow</receiver>
+   <slot>showAllBooks()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>953</x>
+     <y>40</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>492</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onChangedMode(bool)</slot>
+  <slot>onSelectedBook(int,int)</slot>
+  <slot>onClickedCloseDetailsBox()</slot>
+  <slot>onCommandButtonClicked()</slot>
+  <slot>onRefreshDetails()</slot>
+  <slot>showAllBooks()</slot>
+ </slots>
+</ui>

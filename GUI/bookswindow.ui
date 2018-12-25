@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BooksWindow</class>
+ <widget class="QWidget" name="BooksWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>640</width>
+    <height>513</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>图书管理</string>
+  </property>
+  <property name="whatsThis">
+   <string>查看所有的图书，并可以修改信息。</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <layout class="QVBoxLayout" name="centralLayout">
+     <item>
+      <widget class="QWidget" name="BookDetailsWidget" native="true">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">#BookDetailsWidget
+{
+	background-color: white;
+	border: 1px solid rgb(235,235,235);
+}
+QLabel, QLineEdit
+{
+	font: 14px &quot;宋体&quot;;
+}
+QLineEdit
+{
+	border:0;
+	border-bottom: 2px solid rgb(220,220,220);
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>15</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>15</number>
+        </property>
+        <property name="bottomMargin">
+         <number>15</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="BookDetailsTitleWidget" native="true">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>50</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <property name="leftMargin">
+            <number>9</number>
+           </property>
+           <property name="topMargin">
+            <number>9</number>
+           </property>
+           <property name="rightMargin">
+            <number>9</number>
+           </property>
+           <property name="bottomMargin">
+            <number>9</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="BookDetailsTitle">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#BookDetailsTitle
+{
+	font: bold 14px &quot;宋体&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>图书信息</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="RefreshBookDetails">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>15</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>15</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#RefreshBookDetails
+{
+	border: 0;
+	image: url(:/Icon/refresh_white.png);
+}
+#RefreshBookDetails:pressed
+{
+	image: url(:/Icon/refresh_black.png);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="CloseDetails">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>15</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>15</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#CloseDetails
+{
+	border:0;
+	image: url(:/Icon/close_white.png);
+}
+#CloseDetails:pressed
+{
+	image: url(:/Icon/close_black.png);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="BookDetailsContentLayout">
+          <item>
+           <layout class="QVBoxLayout" name="CoverLayout">
+            <item>
+             <widget class="QLabel" name="Cover">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>150</width>
+                <height>150</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>150</width>
+                <height>150</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#UserIcon
+{
+	border: 1px solid gray;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="ChangeCover">
+              <property name="styleSheet">
+               <string notr="true">#ChangeCover
+{
+	border: 0;
+	color: gray;
+}
+#ChangeCover:pressed
+{
+	color: black;
+}</string>
+              </property>
+              <property name="text">
+               <string>更换封面...</string>
+              </property>
+              <property name="icon">
+               <iconset resource="resource.qrc">
+                <normaloff>:/Icon/bathrobes-black.png</normaloff>:/Icon/bathrobes-black.png</iconset>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="Path">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="text">
+               <string>TextLabel</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="BookDetailsLayout">
+            <property name="leftMargin">
+             <number>15</number>
+            </property>
+            <item>
+             <widget class="QWidget" name="BookTitleWidget" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>40</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QLabel, QLineEdit
+{
+	font: bold 18px &quot;宋体&quot;;
+}</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_4">
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>10</number>
+               </property>
+               <item>
+                <widget class="QLineEdit" name="Title"/>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <layout class="QGridLayout" name="BookDetailsGrid">
+              <property name="horizontalSpacing">
+               <number>25</number>
+              </property>
+              <property name="verticalSpacing">
+               <number>15</number>
+              </property>
+              <item row="3" column="0">
+               <widget class="QLabel" name="ISBNLabel">
+                <property name="text">
+                 <string>ISBN</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="AuthorLabel">
+                <property name="text">
+                 <string>作者</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="Author"/>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="BookIDLabel">
+                <property name="text">
+                 <string>图书编号</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLineEdit" name="Classification"/>
+              </item>
+              <item row="1" column="3">
+               <widget class="QLineEdit" name="BookID">
+                <property name="echoMode">
+                 <enum>QLineEdit::Normal</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="PressLabel">
+                <property name="text">
+                 <string>出版社</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="Press"/>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="ClassificationLabel">
+                <property name="text">
+                 <string>分类</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="PurchaseTimeLabel">
+                <property name="text">
+                 <string>购入时间</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="QuantityLabel">
+                <property name="text">
+                 <string>图书总数量</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="PermissionLabel">
+                <property name="text">
+                 <string>借阅权限</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QComboBox" name="Permission"/>
+              </item>
+              <item row="2" column="1">
+               <widget class="QDateTimeEdit" name="PurchaseTime"/>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLabel" name="BorrowOutLabel">
+                <property name="text">
+                 <string>已借出数量</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLabel" name="PriceLabel">
+                <property name="text">
+                 <string>价格</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="ISBN"/>
+              </item>
+              <item row="4" column="3">
+               <widget class="QDoubleSpinBox" name="Price"/>
+              </item>
+              <item row="2" column="3">
+               <widget class="QSpinBox" name="Quantity"/>
+              </item>
+              <item row="3" column="3">
+               <widget class="QSpinBox" name="BorrowOut"/>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QWidget" name="CommandWidget" native="true">
+              <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <item>
+                <widget class="QPushButton" name="Save">
+                 <property name="styleSheet">
+                  <string notr="true">#Save
+{
+	width: 100px;
+	height: 30px;
+	border: 1px;
+	border-radius: 12px;
+	background-color: rgb(0, 120, 255);
+	font-size: 16px;
+	color: white;
+}
+#Save:hover
+{
+	background-color: rgb(0, 170, 255);
+}
+#Save:pressed
+{
+	border: 1px solid white;
+	background-color:black;
+	color: white;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>保存</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="Delete">
+                 <property name="styleSheet">
+                  <string notr="true">#Delete
+{
+	width: 100px;
+	height: 30px;
+	border: 1px;
+	border-radius: 12px;
+	background-color: rgb(198, 0, 0);
+	font-size: 16px;
+	color: white;
+}
+#Delete:hover
+{
+	background-color: rgb(220, 0, 0);
+}
+#Delete:pressed
+{
+	border: 1px solid white;
+	background-color:black;
+	color: white;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>删除图书</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="Status">
+                 <property name="text">
+                  <string/>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="BooksListWidget" native="true">
+       <property name="styleSheet">
+        <string notr="true">#BooksListWidget
+{
+	background-color: white;
+	border: 1px solid rgb(235,235,235);
+}</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="BooksListTitleWidget" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>50</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <item>
+            <widget class="QLabel" name="BooksListTitle">
+             <property name="styleSheet">
+              <string notr="true">#BooksListTitle
+{
+	font: bold 14px &quot;宋体&quot;;
+}</string>
+             </property>
+             <property name="text">
+              <string>图书列表</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="RefreshBooksList">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>15</width>
+               <height>15</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#RefreshBooksList
+{
+	border: 0;
+	image: url(:/Icon/refresh_white.png);
+}
+#RefreshBooksList:pressed
+{
+	image: url(:/Icon/refresh_black.png);
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="AddBook">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">#AddBook
+{
+	border: 0;
+	color: rgb(154,168,172);
+}
+#AddBook:pressed
+{
+	color: black;
+}</string>
+             </property>
+             <property name="text">
+              <string>添加新图书</string>
+             </property>
+             <property name="icon">
+              <iconset resource="resource.qrc">
+               <normaloff>:/Icon/plus_white.png</normaloff>
+               <normalon>:/Icon/plus_black.png</normalon>:/Icon/plus_white.png</iconset>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="SearchBookLineWidget" native="true">
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="SearchBook" native="true">
+             <property name="styleSheet">
+              <string notr="true">#SearchBook
+{
+	border: 0;
+	border-bottom: 2px solid rgb(225,225,225);
+}
+QLineEdit, QPushButton
+{
+	font-size: 16px;
+}</string>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="SearchType">
+                <property name="styleSheet">
+                 <string notr="true">#SearchType
+{
+	border: 0;
+	color: gray;
+}</string>
+                </property>
+                <property name="text">
+                 <string>搜索类型</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="Keywords">
+                <property name="styleSheet">
+                 <string notr="true">#Keywords
+{
+	border: 0;
+}</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="SearchButton">
+                <property name="styleSheet">
+                 <string notr="true">#SearchButton
+{
+	border:0;
+	image:url(:/Icon/zoom.png);
+	padding:5px;
+	background-color:rgba(255,255,255,0);
+}
+#SearchButton:hover
+{
+	background-color:rgba(0,0,0,30);
+}
+#SearchButton:pressed
+{
+	background-color:rgba(0,0,0,60);
+}</string>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTableWidget" name="BooksList">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::SingleSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="verticalScrollMode">
+           <enum>QAbstractItemView::ScrollPerPixel</enum>
+          </property>
+          <property name="horizontalScrollMode">
+           <enum>QAbstractItemView::ScrollPerPixel</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>AddBook</sender>
+   <signal>clicked()</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>onAddClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>561</x>
+     <y>340</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Save</sender>
+   <signal>clicked()</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>onSaveClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>257</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Delete</sender>
+   <signal>clicked()</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>onDeleteClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>363</x>
+     <y>268</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ChangeCover</sender>
+   <signal>clicked()</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>onChangeCoverClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>101</x>
+     <y>263</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CloseDetails</sender>
+   <signal>clicked()</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>onCloseDetailsClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>598</x>
+     <y>34</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>SearchButton</sender>
+   <signal>clicked()</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>SearchEvent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>401</x>
+     <y>385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>252</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>BooksList</sender>
+   <signal>cellClicked(int,int)</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>onBookSelected(int,int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>319</x>
+     <y>452</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>256</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Keywords</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>BooksWindow</receiver>
+   <slot>SearchEvent()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>330</x>
+     <y>387</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>319</x>
+     <y>256</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>onCloseDetailsClicked()</slot>
+  <slot>onChangeCoverClicked()</slot>
+  <slot>onSaveClicked()</slot>
+  <slot>onDeleteClicked()</slot>
+  <slot>onAddClicked()</slot>
+  <slot>SearchEvent()</slot>
+  <slot>onBookSelected(int,int)</slot>
+ </slots>
+</ui>
